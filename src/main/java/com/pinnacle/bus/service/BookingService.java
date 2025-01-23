@@ -17,12 +17,12 @@ public class BookingService {
             return bookingRepository.findAll();
     }
 
-    public Booking getBookingById(Long id) {
+    public Booking getBookingById(String id) {
         return bookingRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Booking not found with id: " + id));
     }
 
-    public void deleteBooking(Long id) {
+    public void deleteBooking(String id) {
         bookingRepository.deleteById(id);
     }
     public Booking addBooking(Booking booking){
@@ -30,7 +30,7 @@ public class BookingService {
     }
     
 
-    public void updateBooking(Long id, Booking updatedBooking){
+    public void updateBooking(String id, Booking updatedBooking){
         Booking existingBooking = bookingRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Booking with id " + id + " not found"));
 

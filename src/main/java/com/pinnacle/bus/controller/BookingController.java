@@ -21,12 +21,12 @@ public class BookingController {
     }
 
     @GetMapping("/{id}")
-    public Booking getBookingById(@PathVariable Long id){
+    public Booking getBookingById(@PathVariable String id){
         return bookingService.getBookingById(id);
     }
     
     @GetMapping("/delete/{id}")
-    public void deleteBooking(@PathVariable Long id){
+    public void deleteBooking(@PathVariable String id){
         bookingService.deleteBooking(id);
     }
 
@@ -36,7 +36,7 @@ public class BookingController {
     }
 
     @GetMapping("/update/{id}")
-    public ResponseEntity<String> updateBooking(@PathVariable Long id, @RequestBody Booking booking){
+    public ResponseEntity<String> updateBooking(@PathVariable String id, @RequestBody Booking booking){
         bookingService.updateBooking(id, booking);
         return ResponseEntity.ok("Booking updated successfully");
     }
