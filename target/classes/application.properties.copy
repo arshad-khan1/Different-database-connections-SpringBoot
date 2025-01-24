@@ -1,0 +1,8 @@
+spring.application.name=bus
+server.port=8080
+
+# For MongoDB
+spring.data.mongodb.uri={Your_MongoDB_URI}/{Database_Name}
+
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
