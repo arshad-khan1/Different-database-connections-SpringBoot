@@ -1,8 +1,18 @@
 spring.application.name=bus
 server.port=8080
 
-# For MongoDB
-spring.data.mongodb.uri={Your_MongoDB_URI}/{Database_Name}
+# MongoDB
+spring.data.mongodb.uri=mongodb+srv://your_username:your_password@cluster0.7xcrh.mongodb.net/your_database
+spring.data.mongodb.database=routesdb
 
+# MySQL
+mysql.datasource.url=jdbc:mysql://localhost:3306/your_database
+mysql.datasource.username=your_username
+mysql.datasource.password=your_password
+mysql.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA Settings
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
+
+
