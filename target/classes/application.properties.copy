@@ -15,4 +15,8 @@ mysql.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 
-
+# Postgresql
+postgresql.datasource.url=jdbc:postgresql://localhost:5432/your_database
+postgresql.datasource.username=your_username
+postgresql.datasource.password=your_password
+postgresql.datasource.driver-class-name=org.postgresql.Driver
