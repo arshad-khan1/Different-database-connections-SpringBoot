@@ -1,14 +1,17 @@
 package com.pinnacle.bus.service;
 
-import com.pinnacle.bus.model.BookingMySQL;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.pinnacle.bus.model.BookingMySQL;
 
 @Service
 public class BookingServiceMysql {
-
+    
+    @Qualifier("mysqlJdbcTemplate")
     private final JdbcTemplate jdbcTemplate;
 
     public BookingServiceMysql(JdbcTemplate jdbcTemplate) {
