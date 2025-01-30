@@ -6,20 +6,20 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import com.pinnacle.bus.model.BookingMySQL;
+import com.pinnacle.bus.model.VehicleMySQL;
 
 @Service
-public class BookingServiceMysql {
+public class VehicleServiceMysql {
     
     @Qualifier("mysqlJdbcTemplate")
     private final JdbcTemplate jdbcTemplate;
 
-    public BookingServiceMysql(JdbcTemplate jdbcTemplate) {
+    public VehicleServiceMysql(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
     // Create a new vehicle
-    public BookingMySQL createVehicle(BookingMySQL vehicle) {
+    public VehicleMySQL createVehicle(VehicleMySQL vehicle) {
         String query = "INSERT INTO vehicle (id, name, number, type, availableSeats) VALUES (?, ?, ?, ?, ?)";
         jdbcTemplate.update(query, vehicle.getId(), vehicle.getName(), vehicle.getNumber(),
                 vehicle.getType(), vehicle.getAvailableSeats());
@@ -27,10 +27,10 @@ public class BookingServiceMysql {
     }
 
     // Get vehicle by ID
-    public BookingMySQL getVehicleById(int id) {
+    public VehicleMySQL getVehicleById(int id) {    
         String query = "SELECT * FROM vehicle WHERE id = ?";
         return jdbcTemplate.queryForObject(query, (rs, rowNum) -> {
-            BookingMySQL vehicle = new BookingMySQL();
+            VehicleMySQL vehicle = new VehicleMySQL();
             vehicle.setId(rs.getInt("id"));
             vehicle.setName(rs.getString("name"));
             vehicle.setNumber(rs.getString("number"));
@@ -41,10 +41,10 @@ public class BookingServiceMysql {
     }
 
     // Get all vehicles
-    public List<BookingMySQL> getAllVehicles() {
+    public List<VehicleMySQL> getAllVehicles() {
         String query = "SELECT * FROM vehicle";
         return jdbcTemplate.query(query, (rs, rowNum) -> {
-            BookingMySQL vehicle = new BookingMySQL();
+            VehicleMySQL vehicle = new VehicleMySQL();
             vehicle.setId(rs.getInt("id"));
             vehicle.setName(rs.getString("name"));
             vehicle.setNumber(rs.getString("number"));
