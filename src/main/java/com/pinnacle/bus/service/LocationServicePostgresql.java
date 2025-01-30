@@ -6,30 +6,30 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import com.pinnacle.bus.model.BookingProstgresql;
+import com.pinnacle.bus.model.LocationPostgresql;
 
 @Service
-public class BookingServicePostgresql {
+public class LocationServicePostgresql {
 
     @Qualifier("postgresqlJdbcTemplate")
     private final JdbcTemplate jdbcTemplate;
-
-    public BookingServicePostgresql(JdbcTemplate jdbcTemplate) {
+    
+    public LocationServicePostgresql(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
     // Create a new location
-    public BookingProstgresql createLocation(BookingProstgresql location) {
+    public LocationPostgresql createLocation(LocationPostgresql location) {
         String query = "INSERT INTO location (id, name) VALUES (?, ?)";
         jdbcTemplate.update(query, location.getId(), location.getName());
         return location;
     }
 
     // Get location by ID
-    public BookingProstgresql getLocationById(int id) {
+    public LocationPostgresql getLocationById(int id) {
         String query = "SELECT * FROM location WHERE id = ?";
         return jdbcTemplate.queryForObject(query, (rs, rowNum) -> {
-            BookingProstgresql location = new BookingProstgresql();
+            LocationPostgresql location = new LocationPostgresql();
             location.setId(rs.getInt("id"));
             location.setName(rs.getString("name"));
             return location;
@@ -37,10 +37,10 @@ public class BookingServicePostgresql {
     }
 
     // Get all locations
-    public List<BookingProstgresql> getAllLocations() {
+    public List<LocationPostgresql> getAllLocations() {
         String query = "SELECT * FROM location";
         return jdbcTemplate.query(query, (rs, rowNum) -> {
-            BookingProstgresql location = new BookingProstgresql();
+            LocationPostgresql location = new LocationPostgresql();
             location.setId(rs.getInt("id"));
             location.setName(rs.getString("name"));
             return location;

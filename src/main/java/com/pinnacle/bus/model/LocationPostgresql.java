@@ -4,17 +4,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class BookingProstgresql {
+public class LocationPostgresql {
     @Id
     private int id; // Primary key
 
     private String name; // Location name
 
     // Default constructor
-    public BookingProstgresql() {}
+    public LocationPostgresql() {}
 
     // Parameterized constructor
-    public BookingProstgresql(int id, String name) {
+    public LocationPostgresql(int id, String name) {
         this.id = id;
         this.name = name;
     }

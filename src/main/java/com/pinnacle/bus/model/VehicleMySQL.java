@@ -5,7 +5,7 @@ import jakarta.persistence.Id;
 
 
 @Entity
-public class BookingMySQL {
+public class VehicleMySQL {
     @Id
     private int id; // Primary key (MySQL uses int or bigint for IDs)
 
@@ -15,10 +15,10 @@ public class BookingMySQL {
     private int availableSeats; // Number of available seats
 
     // Default constructor
-    public BookingMySQL() {}
+    public VehicleMySQL() {}
 
     // Parameterized constructor
-    public BookingMySQL(int id, String name, String number, String type, int availableSeats) {
+    public VehicleMySQL(int id, String name, String number, String type, int availableSeats) {
         this.id = id;
         this.name = name;
         this.number = number;
